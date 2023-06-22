@@ -76,7 +76,9 @@ To communicate with your cluster serving the DeepSparse Server from your local m
 
 Test the deployment by calling the DeepSparse Server to run sentiment analysis:
 
-`curl -X POST http://localhost:8080/predict -H 'Content-Type: application/json' -d '{"sequences": "Snorlax loves my Tesla!"}'`
+```bash
+curl -X POST http://localhost:8080/invocations -H 'Content-Type: application/json' -d '{"sequences": "Snorlax loves my Tesla!"}'
+```
 
 ****
 
