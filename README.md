@@ -72,12 +72,18 @@ In the open bash shell of your EKS Cluster, run the following command to see all
 
 To communicate with your cluster serving the DeepSparse Server from your local machine, first create a port forward:
 
-`kubectl port-forward svc/pruned80-quant-none-vnni-cpu-0 8080:8080 -n kube-system`
+`kubectl port-forward svc/pruned95-obs-quantized-cpu-0 8080:8080 -n kube-system`
 
-Test the deployment by calling the DeepSparse Server to run sentiment analysis:
+Test the deployment by calling the DeepSparse Server to run question answering:
 
 ```bash
-curl -X POST http://localhost:8080/invocations -H 'Content-Type: application/json' -d '{"sequences": "Snorlax loves my Tesla!"}'
+curl -X 'POST' \
+  'http://localhost:8080/invocations' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{"question": "What does Snorlax love?", 
+  "context": "Snorlax loves my Tesla"
+}'
 ```
 
 ****
@@ -107,7 +113,7 @@ To set the sizes of your cluster node groups, update the [`eks.conf`](wd/conf/ek
 ## EKS Delete
 To decomission your cluster and remove all AWS resources associated with it, execute the [`./eks-delete.sh`](Container-Root/eks/eks-delete.sh) script. This is a destructive operation. If there is anything in your cluster that you need saved, please persist it outside of the cluster VPC before executing this script.
 
-## Shell customiazations
+## Shell customizations
 When you open a shell into a running `aws-do-eks` container via `./exec.sh`, you will be able to execute `kubectl`, `aws`, and `eksctl` commands. There are other tools and shell customizations that are installed in the container for convenience.
 
 ### Tools and customizations
