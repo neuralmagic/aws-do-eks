@@ -15,3 +15,4 @@ Container-Root/eks/deployment/distributed-training/pytorch/torchx/lightning/imag
 Container-Root/eks/deployment/distributed-training/pytorch/mpijob/*.yaml
 
 .env/
+dev.py
