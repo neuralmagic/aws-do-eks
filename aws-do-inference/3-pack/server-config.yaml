@@ -1,7 +1,7 @@
 endpoints:
     - task: question_answering
-      route: /invocations
       model: zoo:nlp/question_answering/bert-base/pytorch/huggingface/squad/pruned95_obs_quant-none
+      route: /invocations
       batch_size: 1
-      bucketing:
-        sequence_lengths: [128]
+      kwargs:
+        sequence_length: 128

@@ -38,15 +38,15 @@ if [ "$CONFIG" == "conf" ]; then
 	# done
 
 	# Create ASIC nodegroups
-	echo ""
-	echo "Creating ASIC nodegroups in cluster ${CLUSTER_NAME} ..."
-	export nodegroup_opts="${ASIC_NODEGROUP_OPTIONS}"
-	for index in ${!ASIC_NODEGROUP_INSTANCE_TYPES[@]}
-	do
-		export instance_type=${ASIC_NODEGROUP_INSTANCE_TYPES[$index]}
-		export nodegroup_name=$(echo $instance_type | sed -e 's/\./-/g')
-		nodegroup/eks-nodegroup-create.sh
-	done
+	# echo ""
+	# echo "Creating ASIC nodegroups in cluster ${CLUSTER_NAME} ..."
+	# export nodegroup_opts="${ASIC_NODEGROUP_OPTIONS}"
+	# for index in ${!ASIC_NODEGROUP_INSTANCE_TYPES[@]}
+	# do
+	# 	export instance_type=${ASIC_NODEGROUP_INSTANCE_TYPES[$index]}
+	# 	export nodegroup_name=$(echo $instance_type | sed -e 's/\./-/g')
+	# 	nodegroup/eks-nodegroup-create.sh
+	# done
 
 	# Create Fargate Profiles
 	echo ""

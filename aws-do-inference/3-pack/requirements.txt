@@ -1,1 +1,2 @@
 deepsparse[server]>=1.4.2
+deepsparse[transformers]
